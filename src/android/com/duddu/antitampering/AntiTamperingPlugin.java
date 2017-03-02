@@ -24,6 +24,7 @@ public class AntiTamperingPlugin extends CordovaPlugin {
         Log.i(LOG_TAG, "Tampering check started");
         try {
             AssetsIntegrity.check(cordova.getActivity().getAssets());
+            SignatureChecking.validateAppSignature(cordova.getActivity());
             Log.i(LOG_TAG, "Tampering check successful");
         } catch (final Exception e) {
             cordova.getActivity().runOnUiThread(new Runnable() {
